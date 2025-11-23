@@ -14,7 +14,7 @@
         android:title="Моё приложение"
         android:titleTextColor="#FFFFFF"/>
 
-    <!-- картинка -->
+    <!-- картинка 1 -->
     <LinearLayout
         android:id="@+id/item1"
         android:orientation="horizontal"
@@ -33,6 +33,98 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Название 1"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <!-- картинка 2 -->
+    <LinearLayout
+        android:id="@+id/item2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/pic1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Название 2"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <!-- картинка 3 -->
+    <LinearLayout
+        android:id="@+id/item3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/pic1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Название 3"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <!-- картинка 4 -->
+    <LinearLayout
+        android:id="@+id/item4"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/pic1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Название 4"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <!-- картинка 5 -->
+    <LinearLayout
+        android:id="@+id/item5"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/pic1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Название 5"
             android:textSize="16sp"
             android:layout_marginStart="16dp"/>
     </LinearLayout>
