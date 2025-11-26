@@ -10,17 +10,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val item1 = findViewById<LinearLayout>(R.id.item1)
-        val item2 = findViewById<LinearLayout>(R.id.item2)
-        val item3 = findViewById<LinearLayout>(R.id.item3)
-        val item4 = findViewById<LinearLayout>(R.id.item4)
-        val item5 = findViewById<LinearLayout>(R.id.item5)
+        val itemIds = listOf(
+            R.id.item1,
+            R.id.item2,
+            R.id.item3,
+            R.id.item4,
+            R.id.item5
+        )
 
-        item1.setOnClickListener { openDetail("Название 1", R.drawable.pic1) }
-        item2.setOnClickListener { openDetail("Название 2", R.drawable.pic1) }
-        item3.setOnClickListener { openDetail("Название 3", R.drawable.pic1) }
-        item4.setOnClickListener { openDetail("Название 4", R.drawable.pic1) }
-        item5.setOnClickListener { openDetail("Название 5", R.drawable.pic1) }
+        val names = listOf(
+            "Название 1",
+            "Название 2",
+            "Название 3",
+            "Название 4",
+            "Название 5"
+        )
+        for (i in itemIds.indices) {
+            val item = findViewById<LinearLayout>(itemIds[i])
+            item.setOnClickListener {
+                openDetail(names[i], R.drawable.pic1)
+            }
+        }
     }
 
     private fun openDetail(title: String, imageRes: Int) {
