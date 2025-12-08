@@ -1,29 +1,44 @@
 package com.example.web_1
 
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar_detail)
-        toolbar.title = "Назад"
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        toolbar.setNavigationOnClickListener { finish() }
+        val title = intent.getStringExtra("title") ?: ""
+        val imageUrl = intent.getStringExtra("imageUrl") ?: ""
 
-        val imageView = findViewById<ImageView>(R.id.detail_image)
-        val titleView = findViewById<TextView>(R.id.detail_title)
+        setContent {
+            MaterialTheme {
+                DetailScreen(title, imageUrl)
+            }
+        }
+    }
+}
 
-        val title = intent.getStringExtra("title")
-        val imageRes = intent.getIntExtra("image", R.drawable.pic1)
-
-        titleView.text = title
-        imageView.setImageResource(imageRes)
+@Composable
+fun DetailScreen(title: String, imageUrl: String) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Text(title)
+        Spacer(Modifier.height(16.dp))
+        AsyncImage(
+            model = imageUrl,
+            contentDescription = null,
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
