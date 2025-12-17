@@ -41,7 +41,6 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun MainScreen() {
-        // Создаем список из объектов Item
         val itemsList = List(100) { index ->
             Item(
                 imageUrl = imageUrls.random(),
