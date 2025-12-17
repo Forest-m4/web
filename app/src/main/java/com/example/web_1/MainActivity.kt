@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -17,6 +16,11 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 
 class MainActivity : ComponentActivity() {
+
+    data class Item(
+        val imageUrl: String,
+        val title: String
+    )
 
     private val imageUrls = listOf(
         "https://image.fonwall.ru/o/vx/space-planet-beauty.jpg",
@@ -37,34 +41,38 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun MainScreen() {
-        val itemsList = List(100) {
-            "Элемент ${it + 1}" to imageUrls.random()
+        // Создаем список из объектов Item
+        val itemsList = List(100) { index ->
+            Item(
+                imageUrl = imageUrls.random(),
+                title = "Элемент ${index + 1}"
+            )
         }
 
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(16.dp)
         ) {
-            items(itemsList) { (title, imageUrl) ->
+            items(itemsList) { item ->
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
                             startActivity(
                                 Intent(this@MainActivity, DetailActivity::class.java)
-                                    .putExtra("title", title)
-                                    .putExtra("imageUrl", imageUrl)
+                                    .putExtra("title", item.title)
+                                    .putExtra("imageUrl", item.imageUrl)
                             )
                         }
                         .padding(8.dp)
                 ) {
                     AsyncImage(
-                        model = imageUrl,
+                        model = item.imageUrl,
                         contentDescription = null,
                         modifier = Modifier.size(64.dp)
                     )
                     Spacer(Modifier.width(16.dp))
-                    Text(title)
+                    Text(item.title)
                 }
             }
         }
